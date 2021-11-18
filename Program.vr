@@ -18,9 +18,7 @@ BegClass Program
     BegSr Main Shared(*Yes) Access(*Public) Attributes(System.STAThread())
         DclSrParm args Type(*String) Rank(1)
 
-        DclFld t Type(TestEmail) New() 
-
-        t.SendEmail() 
+        TestEmail.SendEmail()
 
         Console.WriteLine('Press any key to continue...') 
         Console.ReadKey()

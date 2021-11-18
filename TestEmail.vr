@@ -12,7 +12,9 @@ BegClass TestEmail
     // The `SendEmail` method doesn't know or care about 
     // how the `Email` class is sending email. If later you swap out `System.Net.Mail's`
     // email classes in the `Email` class, the `SendEmail` method continues to work. 
-    BegSr SendEmail Access(*Public)
+    // Note that SendEmail is static (ie, Shared(*Yes)) and is therefore usable without instancing
+    // its owner class.
+    BegSr SendEmail Access(*Public) Shared(*Yes) 
         DclFld em Type(Emailer) New()
 
         // Resist the urge to hardcode these values. It's much better to pull these property values in 

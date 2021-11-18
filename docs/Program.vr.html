@@ -68,9 +68,7 @@ You&rsquo;ll probably want to put the <code>Emailer</code> class in your own nam
       <div class="highlight"><pre>    <span class="nx">BegSr</span> <span class="nx">Main</span> <span class="nx">Shared</span><span class="p">(</span><span class="o">*</span><span class="nx">Yes</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> <span class="nx">Attributes</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">STAThread</span><span class="p">())</span>
         <span class="nx">DclSrParm</span> <span class="nx">args</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span> <span class="nx">Rank</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
 
-        <span class="nx">DclFld</span> <span class="nx">t</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">TestEmail</span><span class="p">)</span> <span class="nx">New</span><span class="p">()</span> 
-
-        <span class="nx">t</span><span class="p">.</span><span class="nx">SendEmail</span><span class="p">()</span> 
+        <span class="nx">TestEmail</span><span class="p">.</span><span class="nx">SendEmail</span><span class="p">()</span>
 
         <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s1">&#39;Press any key to continue...&#39;</span><span class="p">)</span> 
         <span class="nx">Console</span><span class="p">.</span><span class="nx">ReadKey</span><span class="p">()</span>

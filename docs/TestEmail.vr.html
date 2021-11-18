@@ -50,10 +50,12 @@
       <h4>`SendEmail` method</h4>
 <p>The <code>SendEmail</code> method doesn&rsquo;t know or care about 
 how the <code>Email</code> class is sending email. If later you swap out <code>System.Net.Mail's</code>
-email classes in the <code>Email</code> class, the <code>SendEmail</code> method continues to work. </p>
+email classes in the <code>Email</code> class, the <code>SendEmail</code> method continues to work. 
+Note that SendEmail is static (ie, Shared(*Yes)) and is therefore usable without instancing
+its owner class.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="nx">BegSr</span> <span class="nx">SendEmail</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span>
+      <div class="highlight"><pre>    <span class="nx">BegSr</span> <span class="nx">SendEmail</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> <span class="nx">Shared</span><span class="p">(</span><span class="o">*</span><span class="nx">Yes</span><span class="p">)</span> 
         <span class="nx">DclFld</span> <span class="nx">em</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">Emailer</span><span class="p">)</span> <span class="nx">New</span><span class="p">()</span></pre></div>
     </div>
   </div>
