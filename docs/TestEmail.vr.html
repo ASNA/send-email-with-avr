@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>TestEmail.vr</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>TestEmail.vr</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <h3>TestMail class</h3>
+<p>The <code>TestEmail</code> class provides the <code>SendEmail</code> method that you&rsquo;ll copy into your code to send emails with the <code>Emailer</code> class.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nx">Using</span> <span class="nx">System</span>
+<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Collections</span><span class="p">.</span><span class="nx">Generic</span>
+<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">IO</span> 
+<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Configuration</span>
+
+<span class="nx">BegClass</span> <span class="nx">TestEmail</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <h4>`SendEmail` method</h4>
+<p>The <code>SendEmail</code> method doesn&rsquo;t know or care about 
+how the <code>Email</code> class is sending email. If later you swap out <code>System.Net.Mail's</code>
+email classes in the <code>Email</code> class, the <code>SendEmail</code> method continues to work. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nx">BegSr</span> <span class="nx">SendEmail</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span>
+        <span class="nx">DclFld</span> <span class="nx">em</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">Emailer</span><span class="p">)</span> <span class="nx">New</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>Resist the urge to hardcode these values. It&rsquo;s much better to pull these property values in 
+from <code>App.Config</code> or <code>Web.Config</code> or some other external store.
+See the <a href="#appsettings">note on <code>appSettings</code></a> at the end of this code.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">em</span><span class="p">.</span><span class="nx">SMTPServer</span>    <span class="o">=</span> <span class="nx">ConfigurationManager</span><span class="p">.</span><span class="nx">AppSettings</span><span class="p">[</span><span class="s2">&quot;smtp-server&quot;</span><span class="p">]</span>
+        <span class="nx">em</span><span class="p">.</span><span class="nx">User</span>          <span class="o">=</span> <span class="nx">ConfigurationManager</span><span class="p">.</span><span class="nx">AppSettings</span><span class="p">[</span><span class="s2">&quot;smtp-user&quot;</span><span class="p">]</span>
+        <span class="nx">em</span><span class="p">.</span><span class="nx">Password</span>      <span class="o">=</span> <span class="nx">ConfigurationManager</span><span class="p">.</span><span class="nx">AppSettings</span><span class="p">[</span><span class="s2">&quot;smtp-password&quot;</span><span class="p">]</span>
+        <span class="nx">em</span><span class="p">.</span><span class="nx">From</span>          <span class="o">=</span> <span class="nx">ConfigurationManager</span><span class="p">.</span><span class="nx">AppSettings</span><span class="p">[</span><span class="s2">&quot;from-address&quot;</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>Assign To and, optionally, CC/BCC addresses. Each can have 
+more than one added.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">em</span><span class="p">.</span><span class="nx">To</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="s2">&quot;rp@asna.com&quot;</span><span class="p">)</span> 
+        <span class="nx">em</span><span class="p">.</span><span class="nx">BCC</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="s2">&quot;roger@asna.com&quot;</span><span class="p">)</span> 
+        <span class="nx">em</span><span class="p">.</span><span class="nx">CC</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="s2">&quot;roger.pence@asna.com&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Optionally assign attachments. The file must exist on the PC.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">em</span><span class="p">.</span><span class="nx">Attachments</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="s2">&quot;C:\Users\roger\Documents\dbnames.txt&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>Set <code>IsImportant</code> flag if necessary.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">em</span><span class="p">.</span><span class="nx">IsImportant</span> <span class="o">=</span> <span class="o">*</span><span class="nx">True</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>If you don&rsquo;t want to send HTML email, set the <code>IsHtml</code> property to False. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="c1">// em.IsHtml = *False</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>Set body and subject. 
+If sending HTML, valid HTML tags as needed. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">em</span><span class="p">.</span><span class="nx">Body</span>          <span class="o">=</span> <span class="s2">&quot;&lt;h1&gt;Hello, world&lt;/h1&gt;&quot;</span>
+        <span class="nx">em</span><span class="p">.</span><span class="nx">Subject</span>       <span class="o">=</span> <span class="s2">&quot;This is a test subject.&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>Attempt to send email.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">Try</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>Send email.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>            <span class="nx">If</span> <span class="nx">em</span><span class="p">.</span><span class="nx">Send</span><span class="p">()</span>
+                <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s1">&#39;Mail sent&#39;</span><span class="p">)</span>
+            <span class="nx">Else</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <p>If <code>Send()</code> doesn&rsquo;t return *True, the exception that 
+occurred is in the LastError property.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">em</span><span class="p">.</span><span class="nx">LastError</span><span class="p">.</span><span class="nx">Message</span><span class="p">)</span>                
+            <span class="nx">EndIf</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <p>Catch any other exception.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nx">Catch</span> <span class="nx">ex</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">Exception</span><span class="p">)</span> 
+            <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">ex</span><span class="p">.</span><span class="nx">Message</span><span class="p">)</span> 
+        <span class="nx">EndTry</span> 
+    <span class="nx">EndSr</span>
+<span class="nx">EndClass</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <h5 id="appsettings">appSettings values</h5>
+<p>Put likely-to-change values in App.Config or Web.Config <code>appSettings</code> section.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <textarea rows="6">
+  <appSettings>
+    <add key="smtp-server" value="smtp.acme.com"/>
+    <add key="smtp-user" value="warren.zevon@transversecity.com"/>
+    <add key="smtp-password" value="sVUOf24q$nF?3&cL"/>
+    <add key="from-address" value="werewolves@london.com"/>
+  </appSettings>
+</textarea>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>

@@ -1,0 +1,30 @@
+﻿
+// <h3>Class1.vr</h3>
+// This example shows how to send emails with the `System.Net.Mail` namespace. 
+// You'll probably want to put the `Emailer` class in your own namespace. 
+
+Using System
+Using System.Net
+Using System.Net.Mail 
+Using System.Collections.Generic
+Using System.IO 
+Using System.Configuration
+
+// <h4>Program class</h4>
+// This test program is a console application.
+BegClass Program
+    // <h3>Main method</h3>
+    // This method instances `TestEmail` and calls its `SendEmail` method.
+    BegSr Main Shared(*Yes) Access(*Public) Attributes(System.STAThread())
+        DclSrParm args Type(*String) Rank(1)
+
+        DclFld t Type(TestEmail) New() 
+
+        t.SendEmail() 
+
+        Console.WriteLine('Press any key to continue...') 
+        Console.ReadKey()
+    EndSr
+EndClass
+
+

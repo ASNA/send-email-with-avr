@@ -1,0 +1,143 @@
+﻿
+// <h3>Emailer class</h3>
+// The Emailer class wraps the `System.Net.Mail` objects
+// `SmtpClient` and `MailMessage` 
+
+Using System
+Using System.Net
+Using System.Net.Mail 
+Using System.Collections.Generic
+Using System.IO 
+Using System.Configuration
+
+BegClass Emailer 
+    // Required properties to send email.
+    DclProp SmtpServer  Type(*String) Access(*Public) 
+    DclProp SmtpPort    Type(*Integer4) Access(*Public) 
+    DclProp EnableSsl   Type(*Boolean) Access(*Public) 
+    DclProp User        Type(*String) Access(*Public) 
+    DclProp Password    Type(*String) Access(*Public) 
+    DclProp From        Type(*String) Access(*Public) 
+    DclProp To          Type(List(*Of *String)) Access(*Public)
+    DclProp Subject     Type(*String) Access(*Public) 
+    DclProp Body        Type(*String) Access(*Public) 
+
+    // Secondary properties to send email.
+    DclProp CC          Type(List(*Of *String)) Access(*Public)
+    DclProp BCC         Type(List(*Of *String)) Access(*Public)    
+    DclProp IsHtml      Type(*Boolean) Access(*Public) 
+    DclProp IsImportant Type(*Boolean) Access(*Public) 
+    DclProp Attachments Type(List(*Of *String)) Access(*Public) 
+
+    // Internal properties.
+    DclFld LastError Type(System.Exception) Access(*Public) 
+    DclFld SendAttempts Type(*Integer4) 
+    DclFld MSWaitBetweenAttempts Type(*Integer4) Access(*Public) 
+
+    // <h4>Constructor</h4>
+    BegConstructor Access(*Public) 
+        // Set initial property values.
+        // Port 465 is deprecated and most SMTP servers require using 
+        // port 587 to send eamil with TLS. 
+        *This.SmtpPort = 587 
+        *This.EnableSsl = *True 
+        *This.IsHtml = *True 
+        *This.IsImportant = *False 
+
+        *This.To = *New List(*Of *String)()
+        *This.CC = *New List(*Of *String)()
+        *This.BCC = *New List(*Of *String)()
+        *This.Attachments = *New List(*Of *String)() 
+        // Max attempts to resend email.
+        *This.SendAttempts = 3 
+        // Wait in milliseconds between send attempts.
+        *This.MSWaitBetweenAttempts = 3000 
+    EndConstructor 
+
+    // <h4>AssignEmailAddress method</h4>
+    // Assign email addresses from the List(\*Of \*Strings) 
+    // value to the object the email client uses. In this case,
+    // the `System.Net.Mail.MailMessage` expects email addresses
+    // (To, CC, and BCC) to be of type `MailAddressCollection`.
+    BegSr AssignEmailAddresses
+        DclSrParm Target Type(MailAddressCollection)
+        DclSrParm Source Type(List(*Of String))
+
+        ForEach EmailAddress Type(*String) Collection(Source) 
+            Target.Add(EmailAddress) 
+        EndFor 
+    EndSr
+
+    // <h4>Send method</h4>
+    BegFunc Send Access(*Public) Type(*Boolean) 
+        DclFld MailObj   Type(SmtpClient) 
+        DclFld MyMessage Type(MailMessage) New()
+
+        DclFld AttemptCounter Type(*Integer4) 
+
+        // Instance new `SmtpClient` object.            
+        MailObj = *New SmtpClient(*This.SMTPServer, *This.SmtpPort) 
+        // Enable SSL. 
+        MailObj.EnableSsl = *This.EnableSsl
+        // Default is HTML email.            
+        MyMessage.IsBodyHtml = *This.IsHtml
+          
+        // Assign From address, Subject, and Body.
+        MyMessage.From    = *New MailAddress(*This.From)
+        MyMessage.Subject = *This.Subject
+        MyMessage.Body    = *This.Body 
+
+        // Assign email addresses.            
+        AssignEmailAddresses(MyMessage.To, *This.To) 
+        AssignEmailAddresses(MyMessage.CC, *This.CC) 
+        AssignEmailAddresses(MyMessage.BCC, *This.BCC) 
+
+        // Set important flag.             
+        If *This.IsImportant
+           MyMessage.Priority = System.Net.Mail.MailPriority.High
+        EndIf 
+
+        // Assign sender credentials
+        If (*This.User <> *Nothing AND *This.Password <> *Nothing)         
+            MailObj.UseDefaultCredentials = *False
+            MailObj.Credentials = *New System.Net.NetworkCredential(*This.User, *This.Password) 
+        EndIf             
+
+        // Add attachments is present.
+        If *This.Attachments.Count > 0
+            ForEach FileName Type(*String) Collection(*This.Attachments)
+                // If attachment not found, bail out.
+                If NOT File.Exists(FileName) 
+                    *This.LastError = *New ArgumentException(String.Format('File attachment [{0}] not found', FileName)) 
+                    LeaveSr *False 
+                EndIf 
+                MyMessage.Attachments.Add(*New System.Net.Mail.Attachment(FileName))
+            EndFor                          
+        EndIf
+
+        // Attempt to send email.
+        For Index(AttemptCounter=1) To(*This.SendAttempts) 
+            Console.WriteLine(String.Format('Attempt #{0}', AttemptCounter)) 
+
+            // Wait before sending if not first send attempt.
+            If AttemptCounter <> 1
+                Sleep Interval(*This.MSWaitBetweenAttempts) 
+            EndIf 
+            // Send email.
+            Try
+                MailObj.Send(MyMessage)
+                LeaveSr *True 
+            Catch Ex Type(System.Exception) 
+                // If max send attempts reached, bail out.
+                If AttemptCounter = *This.SendAttempts
+                    // This exception is available to the caller in the `LastError` property.
+                    *This.LastError = Ex
+                    LeaveSr *False 
+                EndIf 
+            EndTry                    
+        EndFor 
+
+        LeaveSr *False 
+    EndFunc 
+
+EndClass

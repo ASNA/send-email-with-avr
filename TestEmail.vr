@@ -1,0 +1,73 @@
+﻿
+// <h3>TestMail class</h3>
+// The `TestEmail` class provides the `SendEmail` method that you'll copy into your code to send emails with the `Emailer` class.
+
+Using System
+Using System.Collections.Generic
+Using System.IO 
+Using System.Configuration
+
+BegClass TestEmail
+    // <h4>`SendEmail` method</h4>
+    // The `SendEmail` method doesn't know or care about 
+    // how the `Email` class is sending email. If later you swap out `System.Net.Mail's`
+    // email classes in the `Email` class, the `SendEmail` method continues to work. 
+    BegSr SendEmail Access(*Public)
+        DclFld em Type(Emailer) New()
+
+        // Resist the urge to hardcode these values. It's much better to pull these property values in 
+        // from `App.Config` or `Web.Config` or some other external store.
+        // See the [note on `appSettings`](#appsettings) at the end of this code.
+        em.SMTPServer    = ConfigurationManager.AppSettings["smtp-server"]
+        em.User          = ConfigurationManager.AppSettings["smtp-user"]
+        em.Password      = ConfigurationManager.AppSettings["smtp-password"]
+        em.From          = ConfigurationManager.AppSettings["from-address"]
+
+        // Assign To and, optionally, CC/BCC addresses. Each can have 
+        // more than one added.
+        em.To.Add("rp@asna.com") 
+        em.BCC.Add("roger@asna.com") 
+        em.CC.Add("roger.pence@asna.com") 
+
+        // Optionally assign attachments. The file must exist on the PC.
+        em.Attachments.Add("C:\Users\roger\Documents\dbnames.txt")
+
+        // Set `IsImportant` flag if necessary.
+        em.IsImportant = *True
+
+        // If you don't want to send HTML email, set the `IsHtml` property to False. 
+        //- em.IsHtml = *False
+
+        // Set body and subject. 
+        // If sending HTML, valid HTML tags as needed. 
+        em.Body          = "<h1>Hello, world</h1>"
+        em.Subject       = "This is a test subject."
+        
+        // Attempt to send email.
+        Try 
+            // Send email.
+            If em.Send()
+                Console.WriteLine('Mail sent')
+            Else
+                // If `Send()` doesn't return *True, the exception that 
+                // occurred is in the LastError property.
+                Console.WriteLine(em.LastError.Message)                
+            EndIf
+        // Catch any other exception.
+        Catch ex Type(System.Exception) 
+            Console.WriteLine(ex.Message) 
+        EndTry 
+    EndSr
+EndClass
+
+// <h5 id="appsettings">appSettings values</h5>
+// Put likely-to-change values in App.Config or Web.Config `appSettings` section.
+
+// <textarea rows="6">
+//   <appSettings>
+//     <add key="smtp-server" value="smtp.acme.com"/>
+//     <add key="smtp-user" value="warren.zevon@transversecity.com"/>
+//     <add key="smtp-password" value="sVUOf24q$nF?3&cL"/>
+//     <add key="from-address" value="werewolves@london.com"/>
+//   </appSettings>
+// </textarea>
