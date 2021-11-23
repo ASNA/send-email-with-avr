@@ -32,7 +32,7 @@ BegClass TestEmail
         em.CC.Add("roger.pence@asna.com") 
 
         // Optionally assign attachments. The file must exist on the PC.
-        em.Attachments.Add("C:\Users\roger\Documents\dbnames.txt")
+        // em.Attachments.Add("C:\Users\roger\Documents\dbnames.txt")
 
         // Set `IsImportant` flag if necessary.
         em.IsImportant = *True
