@@ -4,7 +4,7 @@
     <add key="smtp-server" value="smtp.yourserver.com"/>
     <add key="smtp-user" value="yourname@email.com"/>
     <add key="smtp-password" value="your password"/>
-	<add key="from-address" value="defaultfromaddress@gmail.com"/>	  
+    <add key="from-address" value="defaultfromaddress@gmail.com"/>	  
   </appSettings>
   <runtime>
     <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
