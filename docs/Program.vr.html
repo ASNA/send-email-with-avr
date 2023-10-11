@@ -34,12 +34,12 @@
 You&rsquo;ll probably want to put the <code>Emailer</code> class in your own namespace. </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="nx">Using</span> <span class="nx">System</span>
-<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Net</span>
-<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Net</span><span class="p">.</span><span class="nx">Mail</span> 
-<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Collections</span><span class="p">.</span><span class="nx">Generic</span>
-<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">IO</span> 
-<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Configuration</span></pre></div>
+      <div class="highlight"><pre><span class="nx">Using</span><span class="w"> </span><span class="nx">System</span>
+<span class="nx">Using</span><span class="w"> </span><span class="nx">System</span><span class="p">.</span><span class="nx">Net</span>
+<span class="nx">Using</span><span class="w"> </span><span class="nx">System</span><span class="p">.</span><span class="nx">Net</span><span class="p">.</span><span class="nx">Mail</span><span class="w"> </span>
+<span class="nx">Using</span><span class="w"> </span><span class="nx">System</span><span class="p">.</span><span class="nx">Collections</span><span class="p">.</span><span class="nx">Generic</span>
+<span class="nx">Using</span><span class="w"> </span><span class="nx">System</span><span class="p">.</span><span class="nx">IO</span><span class="w"> </span>
+<span class="nx">Using</span><span class="w"> </span><span class="nx">System</span><span class="p">.</span><span class="nx">Configuration</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -52,7 +52,7 @@ You&rsquo;ll probably want to put the <code>Emailer</code> class in your own nam
 <p>This test program is a console application.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="nx">BegClass</span> <span class="nx">Program</span></pre></div>
+      <div class="highlight"><pre><span class="nx">BegClass</span><span class="w"> </span><span class="nx">Program</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -65,14 +65,14 @@ You&rsquo;ll probably want to put the <code>Emailer</code> class in your own nam
 <p>This method instances <code>TestEmail</code> and calls its <code>SendEmail</code> method.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="nx">BegSr</span> <span class="nx">Main</span> <span class="nx">Shared</span><span class="p">(</span><span class="o">*</span><span class="nx">Yes</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> <span class="nx">Attributes</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">STAThread</span><span class="p">())</span>
-        <span class="nx">DclSrParm</span> <span class="nx">args</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span> <span class="nx">Rank</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
+      <div class="highlight"><pre><span class="w">    </span><span class="nx">BegSr</span><span class="w"> </span><span class="nx">Main</span><span class="w"> </span><span class="nx">Shared</span><span class="p">(</span><span class="o">*</span><span class="nx">Yes</span><span class="p">)</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span><span class="w"> </span><span class="nx">Attributes</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">STAThread</span><span class="p">())</span>
+<span class="w">        </span><span class="nx">DclSrParm</span><span class="w"> </span><span class="nx">args</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="nx">Rank</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span>
 
-        <span class="nx">TestEmail</span><span class="p">.</span><span class="nx">SendEmail</span><span class="p">()</span>
+<span class="w">        </span><span class="nx">TestEmail</span><span class="p">.</span><span class="nx">SendEmail</span><span class="p">()</span>
 
-        <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s1">&#39;Press any key to continue...&#39;</span><span class="p">)</span> 
-        <span class="nx">Console</span><span class="p">.</span><span class="nx">ReadKey</span><span class="p">()</span>
-    <span class="nx">EndSr</span>
+<span class="w">        </span><span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="s1">&#39;Press any key to continue...&#39;</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">Console</span><span class="p">.</span><span class="nx">ReadKey</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">EndSr</span>
 <span class="nx">EndClass</span>
 
 </pre></div>

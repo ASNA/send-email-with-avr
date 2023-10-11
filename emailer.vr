@@ -1,5 +1,5 @@
 ﻿
-// <h3>Emailer class</h3>
+// ### Emailer class
 // The Emailer class wraps the `System.Net.Mail` objects
 // `SmtpClient` and `MailMessage` 
 
@@ -12,9 +12,9 @@ Using System.Configuration
 
 BegClass Emailer 
     // Required properties to send email.
-    DclProp SmtpServer  Type(*String) Access(*Public) 
-    DclProp SmtpPort    Type(*Integer4) Access(*Public) 
-    DclProp EnableSsl   Type(*Boolean) Access(*Public) 
+    DclProp SmtpServer  Type(*String) 
+    DclProp SmtpPort    Type(*Integer4) 
+    DclProp EnableSsl   Type(*Boolean) 
     DclProp User        Type(*String) Access(*Public) 
     DclProp Password    Type(*String) Access(*Public) 
     DclProp From        Type(*String) Access(*Public) 
@@ -34,27 +34,30 @@ BegClass Emailer
     DclFld SendAttempts Type(*Integer4) 
     DclFld MSWaitBetweenAttempts Type(*Integer4) Access(*Public) 
 
-    // <h4>Constructor</h4>
+    DclConst RESEND_ATTEMPTS Value(3)
+    DclConst MS_BETWEEN_RESEND_ATTEMPT Value(3000)
+
+    // #### Constructor 
     BegConstructor Access(*Public) 
         // Set initial property values.
-        // Port 465 is deprecated and most SMTP servers require using 
-        // port 587 to send eamil with TLS. 
-        *This.SmtpPort = 587 
-        *This.EnableSsl = *True 
-        *This.IsHtml = *True 
-        *This.IsImportant = *False 
 
+        // Set defaults
+        *This.IsImportant = *False 
+        *This.IsHtml= *False
+
+        // Create empty lists
         *This.To = *New List(*Of *String)()
         *This.CC = *New List(*Of *String)()
         *This.BCC = *New List(*Of *String)()
         *This.Attachments = *New List(*Of *String)() 
+
         // Max attempts to resend email.
-        *This.SendAttempts = 3 
+        *This.SendAttempts = RESEND_ATTEMPTS        
         // Wait in milliseconds between send attempts.
-        *This.MSWaitBetweenAttempts = 3000 
+        *This.MSWaitBetweenAttempts = MS_BETWEEN_RESEND_ATTEMPT
     EndConstructor 
 
-    // <h4>AssignEmailAddress method</h4>
+    // #### AssignEmailAddress method
     // Assign email addresses from the List(\*Of \*Strings) 
     // value to the object the email client uses. In this case,
     // the `System.Net.Mail.MailMessage` expects email addresses
@@ -68,10 +71,21 @@ BegClass Emailer
         EndFor 
     EndSr
 
-    // <h4>Send method</h4>
+    // #### Send method
     BegFunc Send Access(*Public) Type(*Boolean) 
         DclFld MailObj   Type(SmtpClient) 
         DclFld MyMessage Type(MailMessage) New()
+
+        // Resist the urge to hardcode these values. It's much better to pull these property values in 
+        // from `App.Config` or `Web.Config` or some other external store.
+        // See the [note on `appSettings`](#appsettings) at the end of this code.
+        *This.SMTPServer    = ConfigurationManager.AppSettings["smtp-server"]
+        *This.User          = ConfigurationManager.AppSettings["smtp-user"]
+        *This.Password      = ConfigurationManager.AppSettings["smtp-password"]
+        *This.From          = ConfigurationManager.AppSettings["from-address"]
+        *This.SmtpPort      = ConfigurationManager.AppSettings["smtp-port"]
+        *This.IsHtml        = ConfigurationManager.AppSettings["send-as-html"] = "true"
+        *This.EnableSsl     = *True 
 
         DclFld AttemptCounter Type(*Integer4) 
 

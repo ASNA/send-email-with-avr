@@ -34,14 +34,14 @@
 <code>SmtpClient</code> and <code>MailMessage</code> </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="nx">Using</span> <span class="nx">System</span>
-<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Net</span>
-<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Net</span><span class="p">.</span><span class="nx">Mail</span> 
-<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Collections</span><span class="p">.</span><span class="nx">Generic</span>
-<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">IO</span> 
-<span class="nx">Using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Configuration</span>
+      <div class="highlight"><pre><span class="nx">Using</span><span class="w"> </span><span class="nx">System</span>
+<span class="nx">Using</span><span class="w"> </span><span class="nx">System</span><span class="p">.</span><span class="nx">Net</span>
+<span class="nx">Using</span><span class="w"> </span><span class="nx">System</span><span class="p">.</span><span class="nx">Net</span><span class="p">.</span><span class="nx">Mail</span><span class="w"> </span>
+<span class="nx">Using</span><span class="w"> </span><span class="nx">System</span><span class="p">.</span><span class="nx">Collections</span><span class="p">.</span><span class="nx">Generic</span>
+<span class="nx">Using</span><span class="w"> </span><span class="nx">System</span><span class="p">.</span><span class="nx">IO</span><span class="w"> </span>
+<span class="nx">Using</span><span class="w"> </span><span class="nx">System</span><span class="p">.</span><span class="nx">Configuration</span>
 
-<span class="nx">BegClass</span> <span class="nx">Emailer</span></pre></div>
+<span class="nx">BegClass</span><span class="w"> </span><span class="nx">Emailer</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -53,15 +53,15 @@
       <p>Required properties to send email.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="nx">DclProp</span> <span class="nx">SmtpServer</span>  <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> 
-    <span class="nx">DclProp</span> <span class="nx">SmtpPort</span>    <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nx">Integer4</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> 
-    <span class="nx">DclProp</span> <span class="nx">EnableSsl</span>   <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Boolean</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> 
-    <span class="nx">DclProp</span> <span class="nx">User</span>        <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> 
-    <span class="nx">DclProp</span> <span class="nx">Password</span>    <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> 
-    <span class="nx">DclProp</span> <span class="nx">From</span>        <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> 
-    <span class="nx">DclProp</span> <span class="nx">To</span>          <span class="nx">Type</span><span class="p">(</span><span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span> <span class="o">*</span><span class="nb">String</span><span class="p">))</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span>
-    <span class="nx">DclProp</span> <span class="nx">Subject</span>     <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> 
-    <span class="nx">DclProp</span> <span class="nx">Body</span>        <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="w">    </span><span class="nx">DclProp</span><span class="w"> </span><span class="nx">SmtpServer</span><span class="w">  </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">DclProp</span><span class="w"> </span><span class="nx">SmtpPort</span><span class="w">    </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nx">Integer4</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">DclProp</span><span class="w"> </span><span class="nx">EnableSsl</span><span class="w">   </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Boolean</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">DclProp</span><span class="w"> </span><span class="nx">User</span><span class="w">        </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">DclProp</span><span class="w"> </span><span class="nx">Password</span><span class="w">    </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">DclProp</span><span class="w"> </span><span class="nx">From</span><span class="w">        </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">DclProp</span><span class="w"> </span><span class="nx">To</span><span class="w">          </span><span class="nx">Type</span><span class="p">(</span><span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span><span class="w"> </span><span class="o">*</span><span class="nb">String</span><span class="p">))</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">DclProp</span><span class="w"> </span><span class="nx">Subject</span><span class="w">     </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">DclProp</span><span class="w"> </span><span class="nx">Body</span><span class="w">        </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -73,11 +73,11 @@
       <p>Secondary properties to send email.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="nx">DclProp</span> <span class="nx">CC</span>          <span class="nx">Type</span><span class="p">(</span><span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span> <span class="o">*</span><span class="nb">String</span><span class="p">))</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span>
-    <span class="nx">DclProp</span> <span class="nx">BCC</span>         <span class="nx">Type</span><span class="p">(</span><span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span> <span class="o">*</span><span class="nb">String</span><span class="p">))</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span>    
-    <span class="nx">DclProp</span> <span class="nx">IsHtml</span>      <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Boolean</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> 
-    <span class="nx">DclProp</span> <span class="nx">IsImportant</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Boolean</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> 
-    <span class="nx">DclProp</span> <span class="nx">Attachments</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span> <span class="o">*</span><span class="nb">String</span><span class="p">))</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="w">    </span><span class="nx">DclProp</span><span class="w"> </span><span class="nx">CC</span><span class="w">          </span><span class="nx">Type</span><span class="p">(</span><span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span><span class="w"> </span><span class="o">*</span><span class="nb">String</span><span class="p">))</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">DclProp</span><span class="w"> </span><span class="nx">BCC</span><span class="w">         </span><span class="nx">Type</span><span class="p">(</span><span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span><span class="w"> </span><span class="o">*</span><span class="nb">String</span><span class="p">))</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span><span class="w">    </span>
+<span class="w">    </span><span class="nx">DclProp</span><span class="w"> </span><span class="nx">IsHtml</span><span class="w">      </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Boolean</span><span class="p">)</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">DclProp</span><span class="w"> </span><span class="nx">IsImportant</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Boolean</span><span class="p">)</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">DclProp</span><span class="w"> </span><span class="nx">Attachments</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span><span class="w"> </span><span class="o">*</span><span class="nb">String</span><span class="p">))</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -89,9 +89,12 @@
       <p>Internal properties.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="nx">DclFld</span> <span class="nx">LastError</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">Exception</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> 
-    <span class="nx">DclFld</span> <span class="nx">SendAttempts</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nx">Integer4</span><span class="p">)</span> 
-    <span class="nx">DclFld</span> <span class="nx">MSWaitBetweenAttempts</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nx">Integer4</span><span class="p">)</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="w">    </span><span class="nx">DclFld</span><span class="w"> </span><span class="nx">LastError</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">Exception</span><span class="p">)</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">DclFld</span><span class="w"> </span><span class="nx">SendAttempts</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nx">Integer4</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">DclFld</span><span class="w"> </span><span class="nx">MSWaitBetweenAttempts</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nx">Integer4</span><span class="p">)</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span><span class="w"> </span>
+
+<span class="w">    </span><span class="nx">DclConst</span><span class="w"> </span><span class="nx">RESEND_ATTEMPTS</span><span class="w"> </span><span class="nx">Value</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">DclConst</span><span class="w"> </span><span class="nx">MS_BETWEEN_RESEND_ATTEMPT</span><span class="w"> </span><span class="nx">Value</span><span class="p">(</span><span class="mf">3000</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -103,7 +106,7 @@
       <h4>Constructor</h4>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="nx">BegConstructor</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="w">    </span><span class="nx">BegConstructor</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -112,20 +115,10 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-6'>#</a>
       </div>
-      <p>Set initial property values.
-Port 465 is deprecated and most SMTP servers require using 
-port 587 to send eamil with TLS. </p>
+      <p>Set initial property values.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">SmtpPort</span> <span class="o">=</span> <span class="mf">587</span> 
-        <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">EnableSsl</span> <span class="o">=</span> <span class="o">*</span><span class="nx">True</span> 
-        <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">IsHtml</span> <span class="o">=</span> <span class="o">*</span><span class="nx">True</span> 
-        <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">IsImportant</span> <span class="o">=</span> <span class="o">*</span><span class="nx">False</span> 
-
-        <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">To</span> <span class="o">=</span> <span class="o">*</span><span class="nx">New</span> <span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span> <span class="o">*</span><span class="nb">String</span><span class="p">)()</span>
-        <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">CC</span> <span class="o">=</span> <span class="o">*</span><span class="nx">New</span> <span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span> <span class="o">*</span><span class="nb">String</span><span class="p">)()</span>
-        <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">BCC</span> <span class="o">=</span> <span class="o">*</span><span class="nx">New</span> <span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span> <span class="o">*</span><span class="nb">String</span><span class="p">)()</span>
-        <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Attachments</span> <span class="o">=</span> <span class="o">*</span><span class="nx">New</span> <span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span> <span class="o">*</span><span class="nb">String</span><span class="p">)()</span></pre></div>
+      <div class="highlight"><pre></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -134,10 +127,11 @@ port 587 to send eamil with TLS. </p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-7'>#</a>
       </div>
-      <p>Max attempts to resend email.</p>
+      <p>Set defaults</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">SendAttempts</span> <span class="o">=</span> <span class="mf">3</span></pre></div>
+      <div class="highlight"><pre><span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">IsImportant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">False</span><span class="w"> </span>
+<span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">IsHtml</span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">False</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -146,11 +140,13 @@ port 587 to send eamil with TLS. </p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-8'>#</a>
       </div>
-      <p>Wait in milliseconds between send attempts.</p>
+      <p>Create empty lists</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">MSWaitBetweenAttempts</span> <span class="o">=</span> <span class="mf">3000</span> 
-    <span class="nx">EndConstructor</span></pre></div>
+      <div class="highlight"><pre><span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">To</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">New</span><span class="w"> </span><span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span><span class="w"> </span><span class="o">*</span><span class="nb">String</span><span class="p">)()</span>
+<span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">CC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">New</span><span class="w"> </span><span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span><span class="w"> </span><span class="o">*</span><span class="nb">String</span><span class="p">)()</span>
+<span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">BCC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">New</span><span class="w"> </span><span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span><span class="w"> </span><span class="o">*</span><span class="nb">String</span><span class="p">)()</span>
+<span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Attachments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">New</span><span class="w"> </span><span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span><span class="w"> </span><span class="o">*</span><span class="nb">String</span><span class="p">)()</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -159,21 +155,10 @@ port 587 to send eamil with TLS. </p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-9'>#</a>
       </div>
-      <h4>AssignEmailAddress method</h4>
-<p>Assign email addresses from the List(*Of *Strings) 
-value to the object the email client uses. In this case,
-the <code>System.Net.Mail.MailMessage</code> expects email addresses
-(To, CC, and BCC) to be of type <code>MailAddressCollection</code>.</p>
+      <p>Max attempts to resend email.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="nx">BegSr</span> <span class="nx">AssignEmailAddresses</span>
-        <span class="nx">DclSrParm</span> <span class="nx">Target</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">MailAddressCollection</span><span class="p">)</span>
-        <span class="nx">DclSrParm</span> <span class="nx">Source</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span> <span class="nb">String</span><span class="p">))</span>
-
-        <span class="nx">ForEach</span> <span class="nx">EmailAddress</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span> <span class="nx">Collection</span><span class="p">(</span><span class="nx">Source</span><span class="p">)</span> 
-            <span class="nx">Target</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">EmailAddress</span><span class="p">)</span> 
-        <span class="nx">EndFor</span> 
-    <span class="nx">EndSr</span></pre></div>
+      <div class="highlight"><pre><span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">SendAttempts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">RESEND_ATTEMPTS</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -182,14 +167,11 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-10'>#</a>
       </div>
-      <h4>Send method</h4>
+      <p>Wait in milliseconds between send attempts.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="nx">BegFunc</span> <span class="nx">Send</span> <span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Boolean</span><span class="p">)</span> 
-        <span class="nx">DclFld</span> <span class="nx">MailObj</span>   <span class="nx">Type</span><span class="p">(</span><span class="nx">SmtpClient</span><span class="p">)</span> 
-        <span class="nx">DclFld</span> <span class="nx">MyMessage</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">MailMessage</span><span class="p">)</span> <span class="nx">New</span><span class="p">()</span>
-
-        <span class="nx">DclFld</span> <span class="nx">AttemptCounter</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nx">Integer4</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">MSWaitBetweenAttempts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">MS_BETWEEN_RESEND_ATTEMPT</span>
+<span class="w">    </span><span class="nx">EndConstructor</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -198,10 +180,21 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-11'>#</a>
       </div>
-      <p>Instance new <code>SmtpClient</code> object.            </p>
+      <h4>AssignEmailAddress method</h4>
+<p>Assign email addresses from the List(*Of *Strings) 
+value to the object the email client uses. In this case,
+the <code>System.Net.Mail.MailMessage</code> expects email addresses
+(To, CC, and BCC) to be of type <code>MailAddressCollection</code>.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">MailObj</span> <span class="o">=</span> <span class="o">*</span><span class="nx">New</span> <span class="nx">SmtpClient</span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">SMTPServer</span><span class="p">,</span> <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">SmtpPort</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="w">    </span><span class="nx">BegSr</span><span class="w"> </span><span class="nx">AssignEmailAddresses</span>
+<span class="w">        </span><span class="nx">DclSrParm</span><span class="w"> </span><span class="nx">Target</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="nx">MailAddressCollection</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">DclSrParm</span><span class="w"> </span><span class="nx">Source</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="nx">List</span><span class="p">(</span><span class="o">*</span><span class="nx">Of</span><span class="w"> </span><span class="nb">String</span><span class="p">))</span>
+
+<span class="w">        </span><span class="nx">ForEach</span><span class="w"> </span><span class="nx">EmailAddress</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="nx">Collection</span><span class="p">(</span><span class="nx">Source</span><span class="p">)</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">Target</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">EmailAddress</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">EndFor</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">EndSr</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -210,10 +203,12 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-12'>#</a>
       </div>
-      <p>Enable SSL. </p>
+      <h4>Send method</h4>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">MailObj</span><span class="p">.</span><span class="nx">EnableSsl</span> <span class="o">=</span> <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">EnableSsl</span></pre></div>
+      <div class="highlight"><pre><span class="w">    </span><span class="nx">BegFunc</span><span class="w"> </span><span class="nx">Send</span><span class="w"> </span><span class="nx">Access</span><span class="p">(</span><span class="o">*</span><span class="nx">Public</span><span class="p">)</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">Boolean</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">DclFld</span><span class="w"> </span><span class="nx">MailObj</span><span class="w">   </span><span class="nx">Type</span><span class="p">(</span><span class="nx">SmtpClient</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">DclFld</span><span class="w"> </span><span class="nx">MyMessage</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="nx">MailMessage</span><span class="p">)</span><span class="w"> </span><span class="nx">New</span><span class="p">()</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -222,10 +217,20 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-13'>#</a>
       </div>
-      <p>Default is HTML email.            </p>
+      <p>Resist the urge to hardcode these values. It&rsquo;s much better to pull these property values in 
+from <code>App.Config</code> or <code>Web.Config</code> or some other external store.
+See the <a href="#appsettings">note on <code>appSettings</code></a> at the end of this code.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">MyMessage</span><span class="p">.</span><span class="nx">IsBodyHtml</span> <span class="o">=</span> <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">IsHtml</span></pre></div>
+      <div class="highlight"><pre><span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">SMTPServer</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nx">ConfigurationManager</span><span class="p">.</span><span class="nx">AppSettings</span><span class="p">[</span><span class="s2">&quot;smtp-server&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">User</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="nx">ConfigurationManager</span><span class="p">.</span><span class="nx">AppSettings</span><span class="p">[</span><span class="s2">&quot;smtp-user&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Password</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="nx">ConfigurationManager</span><span class="p">.</span><span class="nx">AppSettings</span><span class="p">[</span><span class="s2">&quot;smtp-password&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">From</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="nx">ConfigurationManager</span><span class="p">.</span><span class="nx">AppSettings</span><span class="p">[</span><span class="s2">&quot;from-address&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">SmtpPort</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="nx">ConfigurationManager</span><span class="p">.</span><span class="nx">AppSettings</span><span class="p">[</span><span class="s2">&quot;smtp-port&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">IsHtml</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="nx">ConfigurationManager</span><span class="p">.</span><span class="nx">AppSettings</span><span class="p">[</span><span class="s2">&quot;send-as-html&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;true&quot;</span>
+<span class="w">        </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">EnableSsl</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">True</span><span class="w"> </span>
+
+<span class="w">        </span><span class="nx">DclFld</span><span class="w"> </span><span class="nx">AttemptCounter</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nx">Integer4</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -234,12 +239,10 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-14'>#</a>
       </div>
-      <p>Assign From address, Subject, and Body.</p>
+      <p>Instance new <code>SmtpClient</code> object.            </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">MyMessage</span><span class="p">.</span><span class="nx">From</span>    <span class="o">=</span> <span class="o">*</span><span class="nx">New</span> <span class="nx">MailAddress</span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">From</span><span class="p">)</span>
-        <span class="nx">MyMessage</span><span class="p">.</span><span class="nx">Subject</span> <span class="o">=</span> <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Subject</span>
-        <span class="nx">MyMessage</span><span class="p">.</span><span class="nx">Body</span>    <span class="o">=</span> <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Body</span></pre></div>
+      <div class="highlight"><pre><span class="w">        </span><span class="nx">MailObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">New</span><span class="w"> </span><span class="nx">SmtpClient</span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">SMTPServer</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">SmtpPort</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -248,12 +251,10 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-15'>#</a>
       </div>
-      <p>Assign email addresses.            </p>
+      <p>Enable SSL. </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">AssignEmailAddresses</span><span class="p">(</span><span class="nx">MyMessage</span><span class="p">.</span><span class="nx">To</span><span class="p">,</span> <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">To</span><span class="p">)</span> 
-        <span class="nx">AssignEmailAddresses</span><span class="p">(</span><span class="nx">MyMessage</span><span class="p">.</span><span class="nx">CC</span><span class="p">,</span> <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">CC</span><span class="p">)</span> 
-        <span class="nx">AssignEmailAddresses</span><span class="p">(</span><span class="nx">MyMessage</span><span class="p">.</span><span class="nx">BCC</span><span class="p">,</span> <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">BCC</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="w">        </span><span class="nx">MailObj</span><span class="p">.</span><span class="nx">EnableSsl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">EnableSsl</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -262,12 +263,10 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-16'>#</a>
       </div>
-      <p>Set important flag.             </p>
+      <p>Default is HTML email.            </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">If</span> <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">IsImportant</span>
-           <span class="nx">MyMessage</span><span class="p">.</span><span class="nx">Priority</span> <span class="o">=</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Net</span><span class="p">.</span><span class="nx">Mail</span><span class="p">.</span><span class="nx">MailPriority</span><span class="p">.</span><span class="nx">High</span>
-        <span class="nx">EndIf</span></pre></div>
+      <div class="highlight"><pre><span class="w">        </span><span class="nx">MyMessage</span><span class="p">.</span><span class="nx">IsBodyHtml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">IsHtml</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -276,13 +275,12 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-17'>#</a>
       </div>
-      <p>Assign sender credentials</p>
+      <p>Assign From address, Subject, and Body.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">If</span> <span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">User</span> <span class="o">&lt;&gt;</span> <span class="o">*</span><span class="nx">Nothing</span> <span class="nx">AND</span> <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Password</span> <span class="o">&lt;&gt;</span> <span class="o">*</span><span class="nx">Nothing</span><span class="p">)</span>         
-            <span class="nx">MailObj</span><span class="p">.</span><span class="nx">UseDefaultCredentials</span> <span class="o">=</span> <span class="o">*</span><span class="nx">False</span>
-            <span class="nx">MailObj</span><span class="p">.</span><span class="nx">Credentials</span> <span class="o">=</span> <span class="o">*</span><span class="nx">New</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Net</span><span class="p">.</span><span class="nx">NetworkCredential</span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">User</span><span class="p">,</span> <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Password</span><span class="p">)</span> 
-        <span class="nx">EndIf</span></pre></div>
+      <div class="highlight"><pre><span class="w">        </span><span class="nx">MyMessage</span><span class="p">.</span><span class="nx">From</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">New</span><span class="w"> </span><span class="nx">MailAddress</span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">From</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">MyMessage</span><span class="p">.</span><span class="nx">Subject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Subject</span>
+<span class="w">        </span><span class="nx">MyMessage</span><span class="p">.</span><span class="nx">Body</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Body</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -291,11 +289,12 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-18'>#</a>
       </div>
-      <p>Add attachments is present.</p>
+      <p>Assign email addresses.            </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">If</span> <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Attachments</span><span class="p">.</span><span class="nx">Count</span> <span class="o">&gt;</span> <span class="mf">0</span>
-            <span class="nx">ForEach</span> <span class="nx">FileName</span> <span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span> <span class="nx">Collection</span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Attachments</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="w">        </span><span class="nx">AssignEmailAddresses</span><span class="p">(</span><span class="nx">MyMessage</span><span class="p">.</span><span class="nx">To</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">To</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">AssignEmailAddresses</span><span class="p">(</span><span class="nx">MyMessage</span><span class="p">.</span><span class="nx">CC</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">CC</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">AssignEmailAddresses</span><span class="p">(</span><span class="nx">MyMessage</span><span class="p">.</span><span class="nx">BCC</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">BCC</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -304,16 +303,12 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-19'>#</a>
       </div>
-      <p>If attachment not found, bail out.</p>
+      <p>Set important flag.             </p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>                <span class="nx">If</span> <span class="nx">NOT</span> <span class="nx">File</span><span class="p">.</span><span class="nx">Exists</span><span class="p">(</span><span class="nx">FileName</span><span class="p">)</span> 
-                    <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">LastError</span> <span class="o">=</span> <span class="o">*</span><span class="nx">New</span> <span class="nx">ArgumentException</span><span class="p">(</span><span class="nb">String</span><span class="p">.</span><span class="nx">Format</span><span class="p">(</span><span class="s1">&#39;File attachment [{0}] not found&#39;</span><span class="p">,</span> <span class="nx">FileName</span><span class="p">))</span> 
-                    <span class="nx">LeaveSr</span> <span class="o">*</span><span class="nx">False</span> 
-                <span class="nx">EndIf</span> 
-                <span class="nx">MyMessage</span><span class="p">.</span><span class="nx">Attachments</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="o">*</span><span class="nx">New</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Net</span><span class="p">.</span><span class="nx">Mail</span><span class="p">.</span><span class="nx">Attachment</span><span class="p">(</span><span class="nx">FileName</span><span class="p">))</span>
-            <span class="nx">EndFor</span>                          
-        <span class="nx">EndIf</span></pre></div>
+      <div class="highlight"><pre><span class="w">        </span><span class="nx">If</span><span class="w"> </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">IsImportant</span>
+<span class="w">           </span><span class="nx">MyMessage</span><span class="p">.</span><span class="nx">Priority</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">System</span><span class="p">.</span><span class="nx">Net</span><span class="p">.</span><span class="nx">Mail</span><span class="p">.</span><span class="nx">MailPriority</span><span class="p">.</span><span class="nx">High</span>
+<span class="w">        </span><span class="nx">EndIf</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -322,11 +317,13 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-20'>#</a>
       </div>
-      <p>Attempt to send email.</p>
+      <p>Assign sender credentials</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>        <span class="nx">For</span> <span class="nx">Index</span><span class="p">(</span><span class="nx">AttemptCounter</span><span class="o">=</span><span class="mf">1</span><span class="p">)</span> <span class="nx">To</span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">SendAttempts</span><span class="p">)</span> 
-            <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nb">String</span><span class="p">.</span><span class="nx">Format</span><span class="p">(</span><span class="s1">&#39;Attempt #{0}&#39;</span><span class="p">,</span> <span class="nx">AttemptCounter</span><span class="p">))</span></pre></div>
+      <div class="highlight"><pre><span class="w">        </span><span class="nx">If</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">User</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="o">*</span><span class="nx">Nothing</span><span class="w"> </span><span class="nx">AND</span><span class="w"> </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Password</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="o">*</span><span class="nx">Nothing</span><span class="p">)</span><span class="w">         </span>
+<span class="w">            </span><span class="nx">MailObj</span><span class="p">.</span><span class="nx">UseDefaultCredentials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">False</span>
+<span class="w">            </span><span class="nx">MailObj</span><span class="p">.</span><span class="nx">Credentials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">New</span><span class="w"> </span><span class="nx">System</span><span class="p">.</span><span class="nx">Net</span><span class="p">.</span><span class="nx">NetworkCredential</span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">User</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Password</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">EndIf</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -335,12 +332,11 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-21'>#</a>
       </div>
-      <p>Wait before sending if not first send attempt.</p>
+      <p>Add attachments is present.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>            <span class="nx">If</span> <span class="nx">AttemptCounter</span> <span class="o">&lt;&gt;</span> <span class="mf">1</span>
-                <span class="nx">Sleep</span> <span class="nx">Interval</span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">MSWaitBetweenAttempts</span><span class="p">)</span> 
-            <span class="nx">EndIf</span></pre></div>
+      <div class="highlight"><pre><span class="w">        </span><span class="nx">If</span><span class="w"> </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Attachments</span><span class="p">.</span><span class="nx">Count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">            </span><span class="nx">ForEach</span><span class="w"> </span><span class="nx">FileName</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="o">*</span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="nx">Collection</span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">Attachments</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -349,13 +345,16 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-22'>#</a>
       </div>
-      <p>Send email.</p>
+      <p>If attachment not found, bail out.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>            <span class="nx">Try</span>
-                <span class="nx">MailObj</span><span class="p">.</span><span class="nx">Send</span><span class="p">(</span><span class="nx">MyMessage</span><span class="p">)</span>
-                <span class="nx">LeaveSr</span> <span class="o">*</span><span class="nx">True</span> 
-            <span class="nx">Catch</span> <span class="nx">Ex</span> <span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">Exception</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="w">                </span><span class="nx">If</span><span class="w"> </span><span class="nx">NOT</span><span class="w"> </span><span class="nx">File</span><span class="p">.</span><span class="nx">Exists</span><span class="p">(</span><span class="nx">FileName</span><span class="p">)</span><span class="w"> </span>
+<span class="w">                    </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">LastError</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">New</span><span class="w"> </span><span class="nx">ArgumentException</span><span class="p">(</span><span class="nb">String</span><span class="p">.</span><span class="nx">Format</span><span class="p">(</span><span class="s1">&#39;File attachment [{0}] not found&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">FileName</span><span class="p">))</span><span class="w"> </span>
+<span class="w">                    </span><span class="nx">LeaveSr</span><span class="w"> </span><span class="o">*</span><span class="nx">False</span><span class="w"> </span>
+<span class="w">                </span><span class="nx">EndIf</span><span class="w"> </span>
+<span class="w">                </span><span class="nx">MyMessage</span><span class="p">.</span><span class="nx">Attachments</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="o">*</span><span class="nx">New</span><span class="w"> </span><span class="nx">System</span><span class="p">.</span><span class="nx">Net</span><span class="p">.</span><span class="nx">Mail</span><span class="p">.</span><span class="nx">Attachment</span><span class="p">(</span><span class="nx">FileName</span><span class="p">))</span>
+<span class="w">            </span><span class="nx">EndFor</span><span class="w">                          </span>
+<span class="w">        </span><span class="nx">EndIf</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -364,10 +363,11 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-23'>#</a>
       </div>
-      <p>If max send attempts reached, bail out.</p>
+      <p>Attempt to send email.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>                <span class="nx">If</span> <span class="nx">AttemptCounter</span> <span class="o">=</span> <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">SendAttempts</span></pre></div>
+      <div class="highlight"><pre><span class="w">        </span><span class="nx">For</span><span class="w"> </span><span class="nx">Index</span><span class="p">(</span><span class="nx">AttemptCounter</span><span class="o">=</span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="nx">To</span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">SendAttempts</span><span class="p">)</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nb">String</span><span class="p">.</span><span class="nx">Format</span><span class="p">(</span><span class="s1">&#39;Attempt #{0}&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">AttemptCounter</span><span class="p">))</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -376,17 +376,58 @@ the <code>System.Net.Mail.MailMessage</code> expects email addresses
       <div class='octowrap'>
         <a class='octothorpe' href='#section-24'>#</a>
       </div>
+      <p>Wait before sending if not first send attempt.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="w">            </span><span class="nx">If</span><span class="w"> </span><span class="nx">AttemptCounter</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="mf">1</span>
+<span class="w">                </span><span class="nx">Sleep</span><span class="w"> </span><span class="nx">Interval</span><span class="p">(</span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">MSWaitBetweenAttempts</span><span class="p">)</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">EndIf</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-25'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-25'>#</a>
+      </div>
+      <p>Send email.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="w">            </span><span class="nx">Try</span>
+<span class="w">                </span><span class="nx">MailObj</span><span class="p">.</span><span class="nx">Send</span><span class="p">(</span><span class="nx">MyMessage</span><span class="p">)</span>
+<span class="w">                </span><span class="nx">LeaveSr</span><span class="w"> </span><span class="o">*</span><span class="nx">True</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">Catch</span><span class="w"> </span><span class="nx">Ex</span><span class="w"> </span><span class="nx">Type</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">Exception</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-26'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-26'>#</a>
+      </div>
+      <p>If max send attempts reached, bail out.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="w">                </span><span class="nx">If</span><span class="w"> </span><span class="nx">AttemptCounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">SendAttempts</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-27'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-27'>#</a>
+      </div>
       <p>This exception is available to the caller in the <code>LastError</code> property.</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>                    <span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">LastError</span> <span class="o">=</span> <span class="nx">Ex</span>
-                    <span class="nx">LeaveSr</span> <span class="o">*</span><span class="nx">False</span> 
-                <span class="nx">EndIf</span> 
-            <span class="nx">EndTry</span>                    
-        <span class="nx">EndFor</span> 
+      <div class="highlight"><pre><span class="w">                    </span><span class="o">*</span><span class="nx">This</span><span class="p">.</span><span class="nx">LastError</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Ex</span>
+<span class="w">                    </span><span class="nx">LeaveSr</span><span class="w"> </span><span class="o">*</span><span class="nx">False</span><span class="w"> </span>
+<span class="w">                </span><span class="nx">EndIf</span><span class="w"> </span>
+<span class="w">            </span><span class="nx">EndTry</span><span class="w">                    </span>
+<span class="w">        </span><span class="nx">EndFor</span><span class="w"> </span>
 
-        <span class="nx">LeaveSr</span> <span class="o">*</span><span class="nx">False</span> 
-    <span class="nx">EndFunc</span> 
+<span class="w">        </span><span class="nx">LeaveSr</span><span class="w"> </span><span class="o">*</span><span class="nx">False</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">EndFunc</span><span class="w"> </span>
 
 <span class="nx">EndClass</span>
 

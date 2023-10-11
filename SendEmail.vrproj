@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SendEmail</RootNamespace>
     <AssemblyName>SendEmail</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <CompactDs>True</CompactDs>
     <Name>DeleteMe34eee</Name>
     <TargetFrameworkProfile />

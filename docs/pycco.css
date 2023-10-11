@@ -5,7 +5,7 @@
 
 /*--------------------- Layout and Typography ----------------------------*/
 body {
-  font-family: sans-serif, 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif;
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif;
   font-size: 16px;
   line-height: 24px;
   color: #252519;
@@ -89,6 +89,7 @@ div.docs {
   padding: 10px 25px 1px 50px;
   vertical-align: top;
   text-align: left;
+  font-family: sans-serif;
 }
   .docs pre {
     margin: 15px 0 15px;
@@ -198,46 +199,3 @@ body .vc { color: #19469D }                     /* Name.Variable.Class */
 body .vg { color: #19469D }                     /* Name.Variable.Global */
 body .vi { color: #19469D }                     /* Name.Variable.Instance */
 body .il { color: #666666 }                     /* Literal.Number.Integer.Long */
-
-h3, h4, h5 {
-  color: white;
-  padding: 2px 8px;
-  font-size: 100%;
-  border-radius: 4px;
-}
-
-h3 {
-    background-color: midnightblue;
-}
-
-h4 {
-    background-color:teal; 
-}
-
-h5 {
-  background-color:orangered;
-  color: white;
-  padding: 2px 8px;
-  font-size: 100%;
-  border-radius: 8px;
-}
-
-
-p {
-  margin-left: 1em;
-  font-size: 90%;
-}
-
-p>code {
-  font-size: 110% !important;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
-
-textarea {
-  width: 100%;
-  border: none;
-  outline: none;
-  resize: none;
-}
