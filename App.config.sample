@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <appSettings>
+    <add key="smtp-server" value="SMTP IP address or name/>
+    <add key="smtp-port"  value="587"/>
+      <!--
+      Port 465 is deprecated and most SMTP servers require using
+      port 587 to send eamil with TLS.
+      -->
+    <add key="smtp-user" value="smtp user"/>
+    <add key="smtp-password" value="smtp password"/>
+    <add key="from-address" value="email from address"/>
+
+  </appSettings>  
+</configuration>
